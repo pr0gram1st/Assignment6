@@ -36,5 +36,12 @@ int main(){
     Miner miner;
     thread th(firstThread, blockchain, data, miner);
 
+    thread th1(secondThread, blockchain, data1, miner);
+
+    th1.join();
+
+    blockchain->printBlockChain();
+
+    cout << (blockchain->isBlockchainValid() ? "Valid" : "Invalid");
     th.join();
 }
