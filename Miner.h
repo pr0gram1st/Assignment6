@@ -14,7 +14,7 @@ using namespace std;
 
 class Miner{
 public:
-    Blockchain mine(Blockchain blockchain, TransactionData data){
+    Blockchain mine(Blockchain &blockchain, TransactionData &data){
         srand(time(NULL));
         int x = rand() % 10;
         int y = rand() % 10;

@@ -12,6 +12,9 @@ class Blockchain{
 private:
     vector < Block > chain;
 public:
+    vector < Block > getchain(){
+        return this->chain;
+    }
     Block createFirstBlock(){
         time_t current;
         TransactionData dataFirstBlock(0, "FirstBlock", "FirstBlock", time(&current));
@@ -34,7 +37,8 @@ public:
     void printBlockChain(){
         for(vector < Block > :: iterator it = chain.begin(); it != chain.end(); ++it){
             Block cur = *it;
-            cout << "Index: " << cur.getIndex() << "\n" << cur.getTransactionData();
+            TransactionData x = cur.getTransactionData();
+            cout << "Index: " << cur.getIndex() << "\n" << x;
         }
     }
     bool isBlockchainValid(){
